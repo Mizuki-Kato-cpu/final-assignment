@@ -1,0 +1,129 @@
+<! DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>ゴールデンレトリバーの魅力</title>
+<link rel="stylesheet" type="text/css" href="mystyle.css"/>
+</head>
+
+
+<body id="toppage">
+<header>
+<h1>ゴールデンレトリバーの魅力</h1>
+<nav id="top">
+   <ul id="indexmenue">
+      <li><a href="about.html">ゴールデンレトリバーとは</a></li>
+      <li><a href="feature.html">ゴールデンレトリバーの個人的ポイント</a></li>
+      <li><a href="care.html">ゴールデンレトリバーの注意点</a></li>
+      <li><a href="contact.html">お問い合わせ</a></li>
+   </ul>
+ </nav>
+ <nav id="backtotop">
+   <ul id="indexmenue1">
+      <li><a href="toppage.html">ホーム</a></li>
+   </ul>
+</nav>
+</header>
+
+<main>
+<h2>このサイトについて</h2>
+<div id="content0">
+このサイトでは、作者の独断と偏見からゴールデンレトリバーの魅力についてご紹介します。<br>
+大型犬の中では人気のある犬種なので、「犬種の名前は聞いたことある」という人は多いかもしれません。<br>
+このサイトでより多くの人にゴールデンレトリバーの魅力を知っていただけたら幸いです。<br>
+</div>
+
+<div class="slider">
+    <button class="nav prev">&#10094;</button>
+
+    <div class="slider-window">
+      <ul class="slider-track">
+        <li><img src="image/IMG_2345.JPEG" alt=""></li>
+        <li><img src="image/IMG_1950.JPEG" alt=""></li>
+        <li><img src="image/IMG_2219.JPEG" alt=""></li>
+        <li><img src="image/IMG_2345.JPEG" alt=""></li>
+      </ul>
+    </div>
+         
+    <button class="nav next">&#10095;</button>
+
+    <div class="slider-text">
+      あなたはまだ知らない、<br>
+      ゴールデンレトリバーの魅力
+   </div>
+  </div>
+
+</main>
+<script>
+const track = document.querySelector('.slider-track');
+const slides = document.querySelectorAll('.slider-track li');
+const prevBtn = document.querySelector('.prev');
+const nextBtn = document.querySelector('.next');
+
+let index = 0;
+const total = slides.length;
+
+function showSlide(i) {
+  track.style.transition = 'transform 0.5s ease';
+  track.style.transform = `translateX(-${i * 100}%)`;
+}
+
+/* 次へ */
+function nextSlide() {
+  index++;
+  showSlide(index);
+
+  // ダミーに到達したら、瞬時に最初へ
+  if (index === total - 1) {
+    setTimeout(() => {
+      track.style.transition = 'none';
+      index = 0;
+      track.style.transform = 'translateX(0%)';
+    }, 500); // transition時間と同じ
+  }
+}
+
+/* 前へ（今回はシンプル版） */
+function prevSlide() {
+  if (index === 0) {
+    index = total - 2;
+    track.style.transition = 'none';
+    track.style.transform = `translateX(-${index * 100}%)`;
+    setTimeout(() => {
+      track.style.transition = 'transform 0.5s ease';
+    }, 20);
+  } else {
+    index--;
+    showSlide(index);
+  }
+}
+
+/* 自動スライド */
+let autoSlide = setInterval(nextSlide, 4000);
+
+/* クリック操作 */
+nextBtn.addEventListener('click', () => {
+  clearInterval(autoSlide);
+  nextSlide();
+  autoSlide = setInterval(nextSlide, 4000);
+});
+
+prevBtn.addEventListener('click', () => {
+  clearInterval(autoSlide);
+  prevSlide();
+  autoSlide = setInterval(nextSlide, 4000);
+});
+</script>
+
+<footer>
+<small id="background">背景はフリー素材<br>
+ <a href="https://www.ac-illust.com/main/detail.php?id=25597118&word=%E8%82%89%E7%90%83%E3%81%AE%E3%83%91%E3%82%BF%E3%83%BC%E3%83%B3%E8%83%8C%E6%99%AF%E7%B4%A0%E6%9D%90+%E7%8A%AC%E7%8C%AB%E3%81%AE%E8%B6%B3%E3%83%BB%E8%B6%B3%E8%B7%A15">フリー素材の参照先はこちら</a><br>
+</small>
+ <small id="copy">copyright &copy; 2025internet contents演習 All Rights Reserved
+ last updated: <time pubdate>2026-1-23</time>
+ made by 加藤瑞生
+</small>
+</footer>
+
+</body>
+</html>
