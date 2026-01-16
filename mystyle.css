@@ -210,6 +210,12 @@ margin-top: 10px;
   font-weight: light;
 }
 
+#indexmenue1 li:not(:last-child)::after { 
+  content: "＞"; 
+  margin-left: 8px; 
+  color: #555;
+}
+
 #indexmenue1 li a:hover {
   text-decoration: underline;
 }
@@ -396,6 +402,7 @@ button:hover{
   color: white;
   cursor: pointer;
 }
+
 
 
 
