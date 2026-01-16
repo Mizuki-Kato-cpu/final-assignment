@@ -1,4 +1,4 @@
-@charset "Shift_JIS";
+@charset "UTF-8";
 /*CSS Document*/
 
 *{
@@ -402,6 +402,7 @@ button:hover{
   color: white;
   cursor: pointer;
 }
+
 
 
 
